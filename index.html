@@ -1,81 +1,96 @@
 <!DOCTYPE html>
 <html>
     <head>
-<style>
-    #acit1620 {
-        background-color: lightcoral;
-    }
-    #acit1420 {
-        background-color: darksalmon;
-    }
-    #acit1630 {
-        background-color: khaki;
-    }
-    #acit1515 {
-        background-color: lightgreen;
-    }
-    #comm1116 {
-        background-color: lightskyblue;
-    }
-    #math1310 {
-        background-color:mediumpurple;
-    }
-    #orgb1100 {
-        background-color: lightgray;
-    }
 
-</style>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     </head>
+
     <body>
 
-        <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><u>Felicia Widjaja</u></h1><br>
-        <img src="1200px-SpongeBob_SquarePants_character.svg.png" alt="Picture of me" width="180" height="180">
-        <p style="font-family: sans-serif;">
-            Hi, my name is Felicia and I came to Vancouver from Indonesia to continue my further studies in BCIT. I chose the CIT program because I love playing with technologies and programming seems fun.<br>
-            Travelling is one of my hobbies. I've been to places like Australia, Japan, Hong Kong, and Singapore. My favourite place to travel so far would be Japan, as there are a lot of good foods there. I'm not really into watching movies but my favourite movie would have to be the Harry Potter series.
-        </p>
+        <div id="title"><br>ZOMBIE HUNTER<br><br>
+            <p id="wholescore"><p id="scoreis">Score:</p>
+            <p id="score">0</p></p></div>
 
-    
-        <p>
-            Click here to view my resume:<br>
-            <a href="resume.html"><input type="button" value="in HTML format"></a><a href="resume.pdf"><input type="button" value="in PDF format"></a>
-        </p>
+        <img src="images/zombie.png" id="zombie"/>
+        <img id="zombie1"/>
 
-        <a href="card.html">Link to my post card</a>
+        <audio id="whack" src="src/whackk.mp3"></audio>
 
-        <h4>The courses that i'm taking at BCIT are:</h4>
-        <ul>
-            <a href="https://www.bcit.ca/study/outlines/20193041870"><div id="acit1620"><li>ACIT 1620: Fundamental Web Technologies<p>This course introduces the fundamental principles and techniques for designing and developing effective Web sites. Topics include: hand-coding pages with HTML; styling text and content with CSS; adding dynamic features with client-side scripting techniques; server-side scripting, and, managing files and Web sites using FTP software. Students will also be introduced to information architecture and interface design, XML, as well as advanced mark-up techniques using DHTML. This course is the foundation for more advanced web courses.
-                </p></li></div></a>
+        <button id="endgame">End Game</button>
 
-            <a href="https://www.bcit.ca/study/outlines/20193044946"><div id="acit1420"><li>ACIT 1420: Intro to Systems Administration<p>This course introduces students to the configuration, maintenance, and administration of a Windows laptop computer. Topics include: An introduction to PC hardware, functions of an operating system (OS), Windows OS architecture, file and disk management, BIOS and UEFI, multi-boot, virtual machines, software installation/removal, performance tuning, backing up and protecting data, troubleshooting, networking, security, virus protection, and firewalls
-                </p></li></div></a>
-
-            <a href="https://www.bcit.ca/study/outlines/20193041871"><div id="acit1630"><li>ACIT 1630: Database Systems<p>This course covers relational database technology, including basic concepts, relational algebra, enhanced entity-relationship data modeling, functional dependencies and normalization, design methodology, SQL query language (DDL and DML), views, security and transaction management.
-                </p></li></div></a>
-
-            <a href="https://www.bcit.ca/study/outlines/20193034319"><div id="acit1515"><li>ACIT 1515: Scripting for IT<p>The course introduces the fundamental concepts of programming for IT professionals, with a focus on scripting languages that are commonly found in the workplace. Projects, assignments, and activities are representative of tasks that IT professionals are likely to encounter in the workplace.Students taking this course will design, implement, test, and debug programs that incorporate: variables, expressions, assignments, I/O, conditional and iterative control constructs, functions, and parameter passing. The course assumes no previous programming experience.
-                </p></li></div></a>
-
-            <a href="https://www.bcit.ca/study/outlines/20193041873"><div id="comm1116"><li>COMM 1116: Business Communications<p>Information technology professionals spend time each day communicating orally and in writing with their supervisors, colleagues and clients. As problem-solvers and entrepreneurs in industry, you need to communicate quickly, clearly, and effectively. This course will teach you how to be a professional and efficient communicator at work. You will write effective business correspondence and instructions and deliver a formal oral presentation to your set. The first term establishes the principles and basic patterns on which you will build more advanced applications in the second term.
-                </p></li></div></a>
-
-            <a href="https://www.bcit.ca/study/outlines/20193041874"><div id="math1310"><li>MATH 1310: Technical Math for IT<p>This course introduces students to the core mathematical constructs that underlie information technology. It is designed to provide a good base for future technical and programming courses. Topics to be covered include select topics from discrete mathematics such as Boolean algebra, numeric systems and data representation, as well as algebraic fundamentals such as algebraic operations, functions, equations and logarithms, linear systems, vectors and matrices.
-                </p></li></div></a>
-
-            <a href="https://www.bcit.ca/study/outlines/20191084974"><div id="orgb1100"><li>ORGB 1100: Organizational Behaviour<p>Presents the study of factors that either influence or are influenced by people at work. The course will focus on macro factors such as organizational structure, technology and environment; group factors such as group dynamics, leadership, conflict, change and decision making; and micro or individual factors such as personality, attitudes, perception and motivation.
-                </p></li></div></a>
-        </ul>
-        
-        <br><br><br>
-Click the image below to be directed to BCIT's website<br>
-        <a href="http://www.bcit.ca"><img src="british-columbia-institute-of-technology-bcit-vector-logo.png" alt="BCIT" height="180" width="360"></a>
-        <br>
-        Click the image below to be directed to computer science memes<br>
-        <a href="https://www.askideas.com/30-most-funny-computer-meme-pictures-and-photos/"><img src="funnyface.png" alt="Funny Computer Science cartoons" height="150" width="200"> </a>
+        <img id="endzombie">
+        <img id="zombiedance">
 
 
+        <script>
+
+            let width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+            let height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+            
+
+            function play(){
+                let audio = document.getElementById('whack');
+                whack.play()
+            }
+
+            function movezombie(){
+                leftpos = Math.random() * (width - 120)
+                toppos = Math.random() * (height - 120)
+                document.getElementById('zombie').style.position = 'absolute'
+                document.getElementById('zombie').style.left = leftpos + 'px'
+                document.getElementById('zombie').style.top = toppos + 'px'
+            }
+            
+            let time = setInterval(function(){movezombie()}, 2000)
+
+            let scorecount = 0
+
+            function score(){
+                let currentscore = document.getElementById('score')
+                scorecount += 1
+                currentscore.innerHTML = scorecount
+            }
+
+            function zombieclick() {
+                clearInterval(time);
+                play();
+                document.getElementById('zombie').src = "images/explosion.gif"
+                score()
+                document.getElementById('zombie').onclick = null;
+                setTimeout(reappear, 1000);
+            }
+
+            function reappear(){
+                document.getElementById('zombie').src = 'images/zombie.png';
+                time = setInterval(function(){movezombie()}, 2000)
+                document.getElementById('zombie').onclick = zombieclick;
+                movezombie()
+            }
+            
+
+            document.getElementById('zombie').onclick = zombieclick
+
+            function endbutton(){
+                scorecount = 0
+                document.getElementById('score').innerHTML = scorecount
+                document.getElementById('zombie').id = 'endzombie'
+                document.getElementById('scoreis').id = 'hide'
+                document.getElementById('score').id = 'hide'
+                document.getElementById('wholescore').innerHTML = 'Game Ended'
+                document.getElementById('zombiedance').id = 'show'
+                document.getElementById('show').src = 'images/zombiedance.gif'
+            }
+
+            document.getElementById('endgame').onclick = endbutton
+
+
+        </script>
 
 
     </body>
