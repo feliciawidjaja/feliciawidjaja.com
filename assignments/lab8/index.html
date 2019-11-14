@@ -1,0 +1,63 @@
+<html lang="en">
+
+<body>
+
+    <p id="errormessage"></p>
+
+
+    <script>
+
+        inputnumber = parseInt(prompt('Input a number between 0 - 26.'));
+
+
+        function generatebuttons(inputnumber) {
+            for (i = 0; i < inputnumber; i++) {
+                if (inputnumber < 27) {
+                    let makebutton = document.createElement('button');
+                    makebutton.innerHTML = String.fromCharCode(i + 65);
+                    document.body.appendChild(makebutton);
+                    makebutton.onclick = (function () { console.log("Button " + makebutton.innerHTML + ' was clicked.') });
+                }
+                else {
+                    document.getElementById('errormessage').innerHTML = 'Input should be between 0 - 26'
+                }
+            }
+        }
+
+        generatebuttons(inputnumber)
+        document.write('<br><br>')
+
+
+    </script>
+
+    <p id="title"></p>
+    <p id="serving"></p>
+    <p id="ingredients"></p>
+    
+    <script>
+
+        function Myrecipe(title, serving, ingredients) {
+            this.title = title;
+            this.serving = serving;
+            this.ingredients = ingredients;
+        }
+
+        myObj = new Myrecipe("Chicken Cacciatore", 2, ["cinnamon", "lettuce", "onion"]);
+
+        function print() {
+            document.getElementById('title').innerHTML = 'Title: ' + myObj.title
+            document.getElementById('serving').innerHTML = 'Serves: ' + myObj.serving
+            document.getElementById('ingredients').innerHTML = 'Ingredients:'
+            for (let i = 0; i < myObj.ingredients.length; i++) {
+                document.write(myObj.ingredients[i] + '<br><br>')
+            }
+        }
+
+        print()
+
+
+
+    </script>
+</body>
+
+</html>
