@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <p>How many buttons to create?</p>
+    <input type="text" id="input"><input type="submit" value="Go!" id="go">
+    <p id="errormessage"></p>
+    <p id="output"></p>
+
+
+    <script>
+
+        let width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+        let height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+
+
+        let buttonarray = [];
+
+
+        function button(color, width, height, order) {
+            this.order = order;
+            this.button = document.createElement("button");
+            this.button.style.backgroundColor = color;
+            this.button.style.width = width;
+            this.button.style.height = height;
+            document.body.appendChild(this.button);
+            this.setLocation = function (top, left) {
+                this.button.style.top = top;
+                this.button.style.left = left;
+                this.button.style.position = "absolute";
+            }
+
+            this.button.id = order;
+
+        }
+
+
+
+        function buttoncolour() {
+            let r = (Math.floor(Math.random() * 255))
+            let g = (Math.floor(Math.random() * 255))
+            let b = (Math.floor(Math.random() * 255))
+            let rgb = 'rgb(' + r + ',' + g + ',' + b + ')'
+            return rgb
+        }
+
+
+
+        function randomlocation() {
+            for (let i = 0; i < userinput; i++) {
+                setTimeout(function () {
+                    buttonarray[i].setLocation(
+                        Math.floor(Math.random() * (height - 60)) + "px",
+                        Math.floor(Math.random() * (width - 120)) + "px");
+                }, (userinput * 1000));
+            }
+        }
+
+
+
+        function onclickgo() {
+            let x = document.getElementById('input').value;
+            userinput = parseInt(x);
+            if (userinput >= 5 && userinput <= 100) {
+                for (let a = 0; a < userinput; a++) {
+                    buttonarray.push(new button(buttoncolour(), "120px", "60px", a))
+                    document.getElementById('go').onclick = null;
+                    buttonarray[a].id = a;
+                    for (let i = 0; i < userinput; i++) {
+                        document.getElementById(a.toString()).onclick = function () { if (i > a){document.getElementById('output').innerHTML = 'Excellent'} else{document.getElementById('output').innerHTML = 'Wrong order'}; };
+                        console.log(buttonarray[i]);
+                }
+                }
+                randomlocation()
+                // for (let i = 0; i < userinput; i++) {
+                //     document.getElementById(a.toString()).onclick = function () { if (i < a){console.log('Wrong order')}; };
+                //     console.log(buttonarray[i]);
+                // }
+            }
+            else {
+                document.getElementById('errormessage').innerHTML = 'Input should be numbers between 5 - 100.'
+            }
+        }
+
+        function testClick(i) {
+            console.log("reached here: ", i);
+        }
+
+
+
+
+        document.getElementById('go').onclick = onclickgo;
+
+
+
+    </script>
+</body>
+
+</html>
